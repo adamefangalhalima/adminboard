@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+   
+    <title>Document</title>
+</head>
+<body >
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <div class="container-fluid text-white">
+              <a class="navbar-brand" href="#">AdminBoard</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="posts.html">Posts</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Categories</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Utilisateurs</a>
+                  </li>
+                </ul>
+                <span class="navbar-text">
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa-solid fa-user-astronaut"></i>
+                      Bienvenue Halima
+                    </button>
+                    <ul class="dropdown-menu text-dark" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item text-dark" href="profile.html"><i class="fa fa-address-book" aria-hidden="true"></i>Profile</a></li>
+                      <li><a class="dropdown-item text-dark" href="parametres.html"><i class="fa fa-cog" aria-hidden="true"></i>Parametre</a></li>
+                    </ul>
+                  </div>
+                  
+                </span> 
+                <a  href="logout.html" style="text-decoration: none;"><span class="navbar-text">
+                  <i class="fa-solid fa-user-astronaut"></i>
+                  Logout
+                </span>
+              </a>
+              </div>
+            </div>
+          </nav>
+        </header>
+        <!-----------sect1----------------->
+        <section class="bg-primary text-white">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+          <i class="fa fa-cog" aria-hidden="true" style="font-size: 40px;"></i>
+          <h5>Dashboard</h5>
+              </div>
+          </div>
+          </div>
+        </section>
+        <!-----------------sect2-------------->
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-3 py-3">
+                <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">
+  +Ajouter un Post
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter un post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="">title</label><br>
+        <div class="input-group flex-nowrap">
+         
+          <input type="text" class="form-control"  aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+        <label for="">Category</label><br>
+        <div class="input-group">
+          <select class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+            <option selected>Web Development</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+         
+        </div>
+        <br>
+        <div class="input-group mb-3">
+          <input type="file" class="form-control" id="inputGroupFile02">
+         
+        </div>
+      </div>
+      <h6>Body</h6>
+      <textarea style="height: 10%;" id="editor"></textarea>
+      <script>
+        ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+</script>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+              <div class="col-3 py-3">
+                <!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal2">
+  +Ajouter une Categorie
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter une categorie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="">title</label><br>
+        <div class="input-group flex-nowrap">
+         
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+              </div>
+              <div class="col-3 py-3">
+                <!-- Button trigger modal -->
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal3">
+  +Ajouter un Utilisateur
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter un Utilisateur</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="">Name</label><br>
+        <div class="input-group flex-nowrap">
+         
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+        <label for="">Email</label><br>
+        <div class="input-group flex-nowrap">
+         
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+        <label for="">Password</label><br>
+        <div class="input-group flex-nowrap">
+         
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+        <label for="">Confirm Password</label><br>
+        <div class="input-group flex-nowrap">
+         
+          <input type="text" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-warning">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!---------------sect3----------------->
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-9">
+                <div class="card text-dark bg-light" >
+                  <div class="card-header">Les posts recents </div>
+                  <div class="card-body">
+                    <table class="table">
+                      <thead  class="table-dark">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Titre</th>
+                          <th scope="col">Categorie</th>
+                          <th scope="col">Date du post</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class=" table-secondary">
+                          <th scope="row">1</th>
+                          <td>Post One</td>
+                          <td>Web Development</td>
+                          <td>October 12,2019</td>
+                          <td><button type="button" class="btn btn-secondary"><i class="fa fa-angle-double-right" aria-hidden="true"></i> <a style="color:white;" href="postone.html"> Details</a></button></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Post Two</td>
+                          <td>Tech Gadgets</td>
+                          <td>Octobre 13,2019</td>
+                          <td><button type="button" class="btn btn-secondary"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Details</button></td>
+                        </tr>
+                        <tr class="table-secondary">
+                          <th scope="row">3</th>
+                          <td>Post Three</td>
+                          <td>Web Development</td>
+                          <td>October 14,2019</td>
+                          <td><button type="button" class="btn btn-secondary"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Details</button></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">4</th>
+                          <td>Post Four</td>
+                          <td>Business</td>
+                          <td>Octobre 14, 2019</td>
+                          <td><button type="button" class="btn btn-secondary"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Details</button></td>
+                        </tr>
+                        <tr class="table-secondary">
+                          <th scope="row">5</th>
+                          <td>Larry the Bird</td>
+                          <td>@twitter</td>
+                          <td>October 15,2019</td>
+                          <td><button type="button" class="btn btn-secondary"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Details</button></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">6</th>
+                          <td>Post Six</td>
+                          <td>Health & Wellness</td>
+                          <td>Octobre 16,2019</td>
+                          <td><button type="button" class="btn btn-secondary"><i class="fa fa-angle-double-right" aria-hidden="true"></i>Details</button></td>
+                        </tr>
+                      </tbody>
+                    </table>
+    
+                  </div>
+                </div>
+                
+              </div>
+              <div class="col-3">
+                <div class="card text-white text-center bg-primary mb-3" style="max-width: 15rem;">
+                  <div class="card-body">
+                    <h5>Posts</h5>
+                    <h1> <i class="fa fa-pencil" aria-hidden="true" style="font-size: 35px;"></i>6</h1>
+                    <button type="button" class="btn btn-outline-light w-30">View</button>
+                    
+                  </div>
+                </div>
+                <div class="card text-white text-center bg-success mb-3" style="max-width: 15rem;">
+                  <div class="card-body">
+                    <h5>categories</h5>
+                    <h1> <i class="fas fa-folder" style="font-size: 35px;"></i>4 </h1>
+                    <button type="button" class="btn btn-outline-light w-30">View</button>
+                  </div>
+                </div>
+                <div class="card text-dark text-center bg-warning mb-3" style="max-width: 15rem;">
+                  <div class="card-body">
+                    <h5>Utilisateurs</h5>
+                    <h1> <i class="fa fa-address-book" aria-hidden="true" style="font-size: 35px;"></i> 13</h1>
+                    <button type="button" class="btn btn-outline-light w-30">View</button>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="bg-dark my-3 py-5" style="margin-top: 20% !important;">
+          <div class="container">
+            <div class="row text-center text-white ">
+             <p>Copyright 2019 AdminBoard</p>
+            </div>
+          </div>
+        </footer>
+
+
+
+
+
+
+
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+      </body>
+</html>
